@@ -1,0 +1,95 @@
+<!doctype html>
+	<html>
+	<head>
+	<title>JavaScript Practice</title>
+<style>
+	th,td{
+		margin: auto;
+		width: 100%;
+		border: 3px solid black;
+		padding: 10px;
+		text-align: center;
+	}
+
+
+</style>
+	</head>
+	<body>
+		<script>
+	var ar= new Array("cars/Bmw.jpg","cars/Chrysler.jpg","cars/civic.jpg","cars/Ferrari.jpg","cars/Lamborghini.jpg","cars/Nissan.jpg");
+	var arr= new Array("BMW","CHRYSLER","CIVIC","FERRARI","LAMBORGHINI","NISSAN");
+	var count=0;
+	function next()
+	{
+		if(count==ar.length-1)
+	{
+		count=0 ;
+	}else{
+	count++;
+	}
+		if(count==arr.length-1)
+		{
+			count=0 ;
+		}else{
+			count++;
+		}
+	document.getElementById("img1").src= ar[count];
+	document.getElementById("sp1").innerHTML = arr[count];
+	}
+	function pre()
+	{
+	if(count==0)
+	{
+	count=ar.length-1;
+	}else{
+	count--;
+	}
+		if(count==0)
+		{
+			count=arr.length-1;
+		}else{
+			count--;
+		}
+	document.getElementById("img1").src=ar[count];
+	document.getElementById("sp1").innerHTML = arr[count];
+	}
+
+	var tm;
+	function start()
+	{
+		tm = setInterval(next, 1000);
+	}
+	function stop()
+	{
+		clearInterval(tm);
+	}
+	
+	</script>
+
+		<center>
+			<hr/>
+			<h1> Available cars</h1>
+	<table border="1">
+	<tr>
+	<th>
+	<img src="cars/Bmw.jpg" height="300" width="400" id="img1">
+	</th>
+	</tr>
+	<tr>
+	<td>
+		<center><span id="sp1">BMW</span></center>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<input type = "button" value="previous" onclick="pre()">&nbsp;&nbsp;&nbsp;
+		<input type = "button" value="start" onclick="start()">&nbsp;&nbsp;&nbsp;
+		<input type = "button" value="stop" onclick="stop()">&nbsp;&nbsp;&nbsp;
+		<input type= "button" value="next" onclick="next()">&nbsp;&nbsp;&nbsp;
+	</td>
+	</tr>
+	</table>
+			<hr/>
+		</center>
+	</body>
+	</html>
